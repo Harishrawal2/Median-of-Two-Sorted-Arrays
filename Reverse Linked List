@@ -1,0 +1,57 @@
+// Java Program
+
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode() {}
+ *     ListNode(int val) { this.val = val; }
+ *     ListNode(int val, ListNode next) { this.val = val; this.next = next; }
+ * }
+ */
+class Solution {
+    public ListNode reverseList(ListNode head) {
+        ListNode prev = null;
+        
+        while (head !=null) {
+            ListNode next = head.next;
+            head.next = prev;
+            prev = head;
+            head = next;
+        }
+        
+        return prev;
+    }
+}
+
+
+
+// Python Programming
+
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, val=0, next=None):
+#         self.val = val
+#         self.next = next
+class Solution(object):
+    def reverseList(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        if head == None:
+            return None
+        elif head != None != None and head.next == None:
+            return head 
+        else:
+            temp = None
+            next_node = None
+            while head != None:
+                next_node = head.next
+                head.next = temp
+                temp = head
+                head = next_node
+                
+            return temp
+        
